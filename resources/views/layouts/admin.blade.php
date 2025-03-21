@@ -11,12 +11,12 @@
 </head>
 
 <body>
-    @include('admin.blocks.header')
+    @include('admin.partials.header')
 
     <div class="flex">
         <!-- Sidebar -->
         <aside class="w-64 h-screen fixed">
-            @include('admin.blocks.sidebar')
+            @include('admin.partials.sidebar')
         </aside>
 
         <!-- Main Content -->
@@ -31,7 +31,7 @@
 
     <!-- Footer -->
     <footer class="w-full  text-white text-center p-4 mt-auto">
-        @include('admin.blocks.footer')
+        @include('admin.partials.footer')
     </footer>
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
