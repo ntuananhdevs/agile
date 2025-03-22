@@ -169,11 +169,10 @@
 
             <!-- Content Area -->
             @yield('content')
+            @include('admin.partials.footer')
         </div>
+
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"></script>
-    <script></script>
 </body>
-
 </html>
