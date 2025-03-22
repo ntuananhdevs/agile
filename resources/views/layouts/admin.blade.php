@@ -118,6 +118,41 @@
             color: white;
             border-color: #007bff;
         }
+        .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh; /* Chiều cao toàn màn hình */
+    width: 250px; /* Độ rộng sidebar */
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background: #007bff;
+    color: white;
+}
+
+.main-content {
+    margin-left: 260px; /* Phải bằng width của sidebar + margin */
+    padding: 20px;
+}
+
+
     </style>
 </head>
 
