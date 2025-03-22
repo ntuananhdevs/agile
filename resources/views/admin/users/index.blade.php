@@ -95,8 +95,8 @@
     </table>
 
     <!-- Hiển thị phân tranga -->
-    <div class="d-flex justify-content-center">
-        {{ $users->links() }}
+    <div class="d-flex justify-content-center mt-3">
+        {{ $users->links('pagination::bootstrap-4') }}
     </div>
 </div>
 
