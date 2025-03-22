@@ -71,7 +71,7 @@
                     <td>{{ $product->category->name }}</td>
                     <td>{{ $product->description }}</td>
                    <td>
-                    <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-info btn-sm">Show</a>
+                    <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-primary btn-sm">Show</a>
                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning btn-sm">Edit</a>
                     <form action="{{ route('admin.products.delete', $product->id) }}" method="POST" style="display:inline;">
                         @csrf
