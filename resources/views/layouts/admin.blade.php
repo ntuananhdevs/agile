@@ -87,7 +87,7 @@
         }
 
         /* Input search */
-        .form-control {
+        .form-control-search {
             width: 250px;
             /* Điều chỉnh độ rộng */
             padding: 8px 12px;

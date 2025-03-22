@@ -19,7 +19,7 @@
                 <!-- Tên -->
                 <div class="col-md-6">
                     <label class="form-label">Tên</label>
-                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" 
+                    <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" 
                         placeholder="Nhập tên" value="{{ old('name') }}">
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>

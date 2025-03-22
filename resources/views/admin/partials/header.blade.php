@@ -5,7 +5,7 @@
 
   <div class="d-flex align-items-center">
     <form class="d-flex ms-3" action="" method="GET">
-      <input class="form-control border-secondary me-2" type="search" name="key" placeholder="Tìm kiếm" aria-label="Search">
+      <input class="form-control-search border-secondary me-2" type="search" name="key" placeholder="Tìm kiếm" aria-label="Search">
       <button class="btn btn-outline-secondary" type="submit">Tìm</button>
   </form>
   
