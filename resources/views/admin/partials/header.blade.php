@@ -1,4 +1,4 @@
-<div class="topbar d-flex justify-content-between align-items-center">
+<div class="topbar d-flex justify-content-between align-items-center mb-4">
   <div class="icon-badge">
       <i class="text-primary fw-bold">ADMIN DEP ZAI 💕🙌😎</i>
   </div>
