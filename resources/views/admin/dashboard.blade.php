@@ -32,7 +32,7 @@
                 </h4>
               </div>
               <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                <i class="material-symbols-rounded opacity-10">weekend</i>
+                <i class="bi bi-calendar-week opacity-10"></i>
               </div>
             </div>
           </div>
@@ -49,7 +49,6 @@
                 </h4>
               </div>
               <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                <i class="material-symbols-rounded opacity-10">person</i>
               </div>
             </div>
           </div>
@@ -67,7 +66,6 @@
                 </h4>
               </div>
               <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                <i class="material-symbols-rounded opacity-10">leaderboard</i>
               </div>
             </div>
           </div>
@@ -83,14 +81,11 @@
                 <h4 class="mb-0">$103,430</h4>
               </div>
               <div class="icon icon-md icon-shape bg-gradient-dark shadow-dark shadow text-center border-radius-lg">
-                <i class="material-symbols-rounded opacity-10">weekend</i>
               </div>
             </div>
           </div>
           <hr class="dark horizontal my-0">
-          <div class="card-footer p-2 ps-3">
-            <p class="mb-0 text-sm"><span class="text-success font-weight-bolder">+5% </span>than yesterday</p>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -240,38 +235,7 @@
         </div>
       </div>
     </div>
-    <footer class="footer py-4  ">
-      <div class="container-fluid">
-        <div class="row align-items-center justify-content-lg-between">
-          <div class="col-lg-6 mb-lg-0 mb-4">
-            <div class="copyright text-center text-sm text-muted text-lg-start ">
-              © <script>
-                document.write(new Date().getFullYear())
-              </script>,
-              made with <i class="fa fa-heart"></i> by
-              <a href="" class="font-weight-bold" target="_blank">Nguyen Tuan Anh</a>
-              for a better web.
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-              <li class="nav-item">
-                <a href="" class="nav-link text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">Nguyen Tuan Anh</a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">About Us</a>
-              </li>
-              <li class="nav-item">
-                <a href" class="nav-link text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">Blog</a>
-              </li>
-              <li class="nav-item">
-                <a href="" class="nav-link pe-0 text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">License</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   
 
