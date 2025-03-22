@@ -1,13 +1,32 @@
-<footer class="fixed bottom-0 w-full bg-white shadow-md dark:bg-gray-900">
-    <div class="max-w-screen-xl mx-auto px-4 py-3 flex flex-col md:flex-row md:items-center md:justify-between">
-        <span class="text-sm text-gray-600 dark:text-gray-400">
-            © 2025 <a href="#" class="hover:underline font-semibold">YourBrand</a>. All rights reserved.
-        </span>
-        <ul class="flex flex-wrap items-center mt-2 md:mt-0 space-x-4 text-sm font-medium text-gray-600 dark:text-gray-400">
-            <li><a href="#" class="hover:text-blue-500">About</a></li>
-            <li><a href="#" class="hover:text-blue-500">Privacy</a></li>
-            <li><a href="#" class="hover:text-blue-500">Terms</a></li>
-            <li><a href="#" class="hover:text-blue-500">Contact</a></li>
-        </ul>
+<footer class="footer py-4  ">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-lg-between">
+        <div class="col-lg-6 mb-lg-0 mb-4">
+          <div class="copyright text-center text-sm text-muted text-lg-start ">
+            © <script>
+              document.write(new Date().getFullYear())
+            </script>,
+            made with <i class="fa fa-heart"></i> by
+            <a href="" class="font-weight-bold" target="_blank">Nguyen Tuan Anh</a>
+            for a better web.
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+            <li class="nav-item">
+              <a href="" class="nav-link text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">Nguyen Tuan Anh</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href" class="nav-link text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">Blog</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link pe-0 text-muted mb-0 h4 font-weight-bolder mb-4" target="_blank">License</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-</footer>
+  </footer>

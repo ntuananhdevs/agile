@@ -82,7 +82,7 @@
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
                 <td>
-                    <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-info btn-sm">Xem</a>
+                    <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-primary btn-sm">Xem</a>
                     <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm">Sửa</a>
                     <form action="{{ route('admin.users.delete', $user->id) }}" method="POST" style="display:inline;">
                         @csrf
