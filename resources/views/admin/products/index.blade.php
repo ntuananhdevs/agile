@@ -61,7 +61,6 @@
                     <th scope="col">Danh mục sản phẩm </th>
                     <th scope="col">Mô tả </th>
                     <th scope="col">Thao tác</th>
-                   
                 </tr>
             </thead>
             <tbody>
@@ -78,15 +77,10 @@
                         <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
                     </form>
                    </td>
-                     
-                    
-                    
-                  
                 </tr>
             @endforeach
         </tbody>
     </table>
-
     <!-- Hiển thị phân trang -->
     <div class="d-flex justify-content-center mt-3">
         {{ $products->links('pagination::bootstrap-4') }}
