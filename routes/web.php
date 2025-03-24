@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
+use App\Models\Order;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,5 +41,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/{id}/edit', [CategoryController::class, 'edit'])->name('edit');
         Route::post('/{id}/update', [CategoryController::class, 'update'])->name('update');
         Route::delete('/{id}/delete', [CategoryController::class, 'destroy'])->name('delete');
+    });
+    Route::prefix('orders')->name('orders.')->group(function () {
+        Route::get('/', [OrderController::class, 'index'])->name('index');
     });
 });

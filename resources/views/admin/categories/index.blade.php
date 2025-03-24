@@ -47,7 +47,7 @@
 
     <!-- Bảng danh sách danh mục -->
     <table class="table table-striped table-bordered">
-        <thead class="table-dark">
+        <thead class="table-light">
             <tr>
                 <th>ID</th>
                 <th>Tên danh mục</th>
