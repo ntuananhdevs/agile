@@ -9,28 +9,28 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
     public function index(Request $request)
-{
-    $query = User::query();
+    {
+        $query = User::query();
 
-    // Tìm kiếm theo ID
-    if ($request->filled('id')) {
-        $query->where('id', $request->id);
+        // Tìm kiếm theo ID
+        if ($request->filled('id')) {
+            $query->where('id', $request->id);
+        }
+
+        // Tìm kiếm theo tên
+        if ($request->filled('name')) {
+            $query->where('name', 'LIKE', '%' . $request->name . '%');
+        }
+
+        // Tìm kiếm theo email
+        if ($request->filled('email')) {
+            $query->where('email', 'LIKE', '%' . $request->email . '%');
+        }
+
+        $users = $query->paginate(10);
+
+        return view('admin.users.index', compact('users'));
     }
-
-    // Tìm kiếm theo tên
-    if ($request->filled('name')) {
-        $query->where('name', 'LIKE', '%' . $request->name . '%');
-    }
-
-    // Tìm kiếm theo email
-    if ($request->filled('email')) {
-        $query->where('email', 'LIKE', '%' . $request->email . '%');
-    }
-
-    $users = $query->paginate(10);
-
-    return view('admin.users.index', compact('users'));
-}
 
     public function show($id)
     {
@@ -42,30 +42,24 @@ class UserController extends Controller
         return view('admin.users.create');
     }
     public function store(Request $request)
-{
-    $dataValidate = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users,email',
-        'password' => 'required|string|min:6',
-        'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
-    ]);
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
+            'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
+        ]);
 
-    // Hash passworda
-    $dataValidate['password'] = bcrypt($request->password);
+        $data['password'] = bcrypt($request->password);
 
-    // Xử lý upload avatar nếu có
-    if ($request->hasFile('avatar')) {
-        $avatarPath = $request->file('avatar')->store('avatars', 'public');
-        $dataValidate['avatar'] = 'storage/' . $avatarPath; // Đảm bảo đường dẫn đúng
+        if($request->hasFile('avatar')) {
+            $path = $request->file('avatar')->store('avatars', 'public');
+            $data['avatar'] = 'avatars/' . basename($path); 
+        }
+        User::create($data);
+        return redirect()->route('admin.users.index');
     }
-    
 
-    User::create($dataValidate);
-
-    return redirect()->route('admin.users.index');
-}
-
-    // Hiển thị form chỉnh sửa người dùng
     public function edit($id)
     {
         $user = User::findOrFail($id);
@@ -101,20 +95,20 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.index');
     }
-    
 
-public function destroy($id)
-{
-    $user = User::findOrFail($id);
 
-    // Kiểm tra và xóa avatar
-    if (!empty($user->avatar)) {
-        Storage::disk('public')->delete($user->avatar);
+    public function destroy($id)
+    {
+        $user = User::findOrFail($id);
+
+        // Kiểm tra và xóa avatar
+        if (!empty($user->avatar)) {
+            Storage::disk('public')->delete($user->avatar);
+        }
+
+        // Xóa user
+        $user->delete();
+
+        return redirect()->route('admin.users.index');
     }
-
-    // Xóa user
-    $user->delete();
-
-    return redirect()->route('admin.users.index');
-}
 }

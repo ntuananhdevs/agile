@@ -69,13 +69,8 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
-                
                 <td>
-                   
-                    <img src="{{ asset($user->avatar) }}" alt="Avatar">
-
-
-                    
+                    <img src="{{ asset( 'storage/' . $user->avatar) }}" alt="Avatar" class="img-circle">
                 </td>
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
