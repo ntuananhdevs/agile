@@ -17,17 +17,17 @@
                     <!-- Tên danh mục -->
                     <div class="col-md-4">
                         <label class="form-label">Tên danh mục</label>
-                        <input type="text" name="ten_danh_muc" class="form-control" placeholder="Nhập tên danh mục"
-                            value="{{ request('ten_danh_muc') }}">
+                        <input type="text" name="name" class="form-control" placeholder="Nhập tên danh mục"
+                            value="{{ request('name') }}">
                     </div>
 
                     <!-- Trạng thái -->
                     <div class="col-md-3">
                         <label class="form-label">Trạng thái</label>
-                        <select name="trang_thai" class="form-control">
+                        <select name="status" class="form-control">
                             <option value="">-- Tất cả --</option>
-                            <option value="1" {{ request('trang_thai') === '1' ? 'selected' : '' }}>Hoạt động</option>
-                            <option value="0" {{ request('trang_thai') === '0' ? 'selected' : '' }}>Ẩn</option>
+                            <option value="1" {{ request('status') === '1' ? 'selected' : '' }}>Hoạt động</option>
+                            <option value="0" {{ request('status') === '0' ? 'selected' : '' }}>Ẩn</option>
                         </select>
                     </div>
 
@@ -60,10 +60,10 @@
             @foreach ($categories as $category)
                 <tr>
                     <td>{{ $category->id }}</td>
-                    <td>{{ $category->ten_danh_muc }}</td>
+                    <td>{{ $category->name }}</td>
                     <td>{{ $category->products->count() }}</td>
                     <td>
-                        @if ($category->trang_thai)
+                        @if ($category->status)
                             <span class="badge bg-success">Hoạt động</span>
                         @else
                             <span class="badge bg-danger">Ẩn</span>

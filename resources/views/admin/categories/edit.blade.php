@@ -17,10 +17,9 @@
                 <!-- Tên danh mục -->
                 <div class="mb-3">
                     <label class="form-label">Tên danh mục <span class="text-danger">*</span></label>
-                    <input type="text" name="ten_danh_muc"
-                        class="form-control @error('ten_danh_muc') is-invalid @enderror"
-                        value="{{ old('ten_danh_muc', $category->ten_danh_muc) }}" required>
-                    @error('ten_danh_muc')
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                        value="{{ old('name', $category->name) }}" required>
+                    @error('name')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
                 </div>
@@ -28,9 +27,9 @@
                 <!-- Trạng thái -->
                 <div class="mb-3">
                     <label class="form-label">Trạng thái</label>
-                    <select name="trang_thai" class="form-control">
-                        <option value="1" {{ $category->trang_thai == 1 ? 'selected' : '' }}>Hoạt động</option>
-                        <option value="0" {{ $category->trang_thai == 0 ? 'selected' : '' }}>Ẩn</option>
+                    <select name="status" class="form-control">
+                        <option value="1" {{ $category->status == 1 ? 'selected' : '' }}>Hoạt động</option>
+                        <option value="0" {{ $category->status == 0 ? 'selected' : '' }}>Ẩn</option>
                     </select>
                 </div>
 

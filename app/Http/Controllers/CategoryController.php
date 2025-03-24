@@ -11,25 +11,24 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         // Lấy giá trị từ request
-        $tenDanhMuc = $request->input('ten_danh_muc');
-        $trangThai = $request->input('trang_thai');
+        $name = $request->input('name');
+        $trangThai = $request->input('status');
 
         // Truy vấn danh mục với điều kiện tìm kiếm
         $categories = Category::query();
 
-        if (!empty($tenDanhMuc)) {
-            $categories->where('ten_danh_muc', 'like', '%' . $tenDanhMuc . '%');
+        if (!empty($name)) {
+            $categories->where('name', 'like', '%' . $name . '%');
         }
 
         if ($trangThai !== null) {
-            $categories->where('trang_thai', $trangThai);
+            $categories->where('status', $trangThai);
         }
 
         $categories = $categories->orderBy('id', 'desc')->paginate(10);
 
         return view('admin.categories.index', compact('categories'));
     }
-
 
     // Hiển thị form tạo danh mục
     public function create()
@@ -41,13 +40,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'ten_danh_muc' => 'required|string|max:255|unique:categories,ten_danh_muc',
-            'trang_thai' => 'required|boolean',
+            'name' => 'required|string|max:255|unique:categories,name',
+            'status' => 'required|boolean',
         ]);
 
         Category::create([
-            'ten_danh_muc' => $request->ten_danh_muc,
-            'trang_thai' => $request->trang_thai,
+            'name' => $request->name,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Danh mục đã được thêm thành công!');
@@ -66,17 +65,18 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $request->validate([
-            'ten_danh_muc' => 'required|string|max:255|unique:categories,ten_danh_muc,' . $id,
-            'trang_thai' => 'required|boolean',
+            'name' => 'required|string|max:255|unique:categories,name,' . $id,
+            'status' => 'required|boolean',
         ]);
 
         $category->update([
-            'ten_danh_muc' => $request->ten_danh_muc,
-            'trang_thai' => $request->trang_thai,
+            'name' => $request->name,
+            'status' => $request->status,
         ]);
 
         return redirect()->route('admin.categories.index')->with('success', 'Danh mục đã được cập nhật thành công!');
     }
+
     // Xóa danh mục
     public function destroy($id)
     {

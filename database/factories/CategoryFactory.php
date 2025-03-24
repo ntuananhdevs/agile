@@ -18,8 +18,9 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
-            'ten_danh_muc' => $this->faker->name(),
-            'trang_thai' => $this->faker->text(),
+            'name' => $this->faker->name(),
+            'status' => $this->faker->boolean(),
+            'description' => $this->faker->sentence(),
         ];
     }
 }
