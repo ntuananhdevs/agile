@@ -24,5 +24,12 @@
         class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
             <i class="bi bi-table"></i> Quản lý đơn hàng
         </a>
+
+
+
+        <a href="" 
+        class="{{ request()->routeIs('admin.logout.*') ? 'active' : 'bs-tertiary-color-rgb' }}  ">
+                <ion-icon name="log-out-outline" size="large" color="#333"></ion-icon> Logout 
+        </a>
     </nav>
 </div>
