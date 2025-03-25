@@ -58,7 +58,9 @@
                 <tr>
                     <th scope="col">STT</th>
                     <th scope="col">Tên sản phẩm</th>
+                    <th scope="col">Mã sản phẩm</th>
                     <th scope="col">Danh mục sản phẩm </th>
+                    <th scope="col">Hình ảnh </th>
                     <th scope="col">Mô tả </th>
                     <th scope="col">Thao tác</th>
                 </tr>
@@ -67,7 +69,11 @@
                 @foreach ($products as $product)
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->name }}</td>
+                    <td>{{ $product->sku }}</td>
                     <td>{{ $product->category->name }}</td>
+                    <td>
+                        <img src="{{ asset('storage/' . $product->image) }}" alt="Hình ảnh" style="width: 100px;">
+                    </td>
                     <td>{{ $product->description }}</td>
                    <td>
                     <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-primary btn-sm">Show</a>
