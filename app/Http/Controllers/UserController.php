@@ -52,10 +52,11 @@ class UserController extends Controller
 
         $data['password'] = bcrypt($request->password);
 
-        if($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) {
             $path = $request->file('avatar')->store('avatars', 'public');
-            $data['avatar'] = 'avatars/' . basename($path); 
+            $data['avatar'] = $path; 
         }
+        
         User::create($data);
         return redirect()->route('admin.users.index');
     }
@@ -109,6 +110,6 @@ class UserController extends Controller
         // Xóa user
         $user->delete();
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin.users.index')->with('success', 'Xóa người dùng thành công!');;
     }
 }

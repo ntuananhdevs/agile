@@ -3,12 +3,30 @@
 @section('title', 'Danh sách người dùng')
 
 @section('content')
+@if (session('success'))
+    <div id="success-alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Thành công!</strong> {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <script>
+        setTimeout(function () {
+            let alert = document.getElementById('success-alert');
+            if (alert) {
+                alert.classList.remove('show');
+                alert.classList.add('fade');
+                setTimeout(() => alert.remove(), 3300); // Xóa hẳn khỏi DOM sau khi ẩn
+            }
+        }, 3000); // 3 giây
+    </script>
+@endif
 
 <h1 class="text-3xl font-bold underline mb-5">Danh sách người dùng</h1>
 
 <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-4">
     Thêm người dùng
 </a>
+
 
 <!-- Form tìm kiếm -->
 <div class="card shadow-sm mb-4">
@@ -70,8 +88,10 @@
             <tr>
                 <td>{{ $user->id }}</td>
                 <td>
-                    <img src="{{ asset( 'storage/' . $user->avatar) }}" alt="Avatar" class="img-circle">
+                    <img src="{{ asset('storage/' . $user->avatar) }}" alt="Avatar" class="img-circle" width="50">
+
                 </td>
+                
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->created_at }}</td>
