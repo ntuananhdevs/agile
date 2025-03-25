@@ -11,10 +11,16 @@ class Product_variants extends Model
     protected $table = 'product_variants';
     protected $fillable = [
         'product_id',
+        'variant_sku'   ,
         'color',
         'ram',
         'storage',
         'price',
-        'stock'
+        'stock',
+        'image',
     ];
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id')->select('id', 'name');
+    }
 }
