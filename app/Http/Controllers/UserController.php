@@ -38,64 +38,97 @@ class UserController extends Controller
         return view('admin.users.show', compact('user'));
     }
     public function create()
-    {
-        return view('admin.users.create');
-    }
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6',
-            'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
-        ]);
+{
+    // Các giá trị của role từ Enum
+    $roles = ['customer', 'admin']; 
 
-        $data['password'] = bcrypt($request->password);
+    return view('admin.users.create', compact('roles'));
+}
 
-        if ($request->hasFile('avatar')) {
-            $path = $request->file('avatar')->store('avatars', 'public');
-            $data['avatar'] = $path; 
-        }
-        
-        User::create($data);
-        return redirect()->route('admin.users.index');
+
+public function store(Request $request)
+{
+    // Validate dữ liệu
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required|string|min:6',
+        'avatar' => 'nullable|image|max:2048',
+        'role' => 'required|in:customer,admin',
+        'status' => 'required|in:active,inactive' // Kiểm tra vai trò hợp lệ (customer hoặc admin)
+    ]);
+
+    // Xử lý avatar
+    if ($request->hasFile('avatar')) {
+        $avatarPath = $request->file('avatar')->store('avatars', 'public');
+    } else {
+        $avatarPath = null; // Nếu không có avatar, để giá trị là null
     }
+
+    // Tạo người dùng mới
+    User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'password' => bcrypt($request->password), // Mã hóa mật khẩu
+        'avatar' => $avatarPath,
+        'role' => $request->role, 
+        'status' => $request->status,
+        // Lưu vai trò (customer hoặc admin)
+    ]);
+
+    // Trở về với thông báo thành công
+    return redirect()->route('admin.users.index')->with('success', 'Thêm người dùng thành công!');
+}
+
 
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('admin.users.edit', compact('user'));
+        $roles = ['customer', 'admin']; 
+        
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 
     // Xử lý cập nhật người dùng
     public function update(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
+{
+    // Lấy người dùng từ cơ sở dữ liệu
+    $user = User::findOrFail($id);
+   
+    // Validate dữ liệu
+    $dataValidate = $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email,' . $id,
+        'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048',
+        'role' => 'required|in:customer,admin',
+        'status' => 'required|in:active,inactive', // Kiểm tra trạng thái hợp lệ
+    ]);
 
-        // Validate dữ liệu
-        $dataValidate = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $id,
-            'avatar' => 'nullable|image|mimes:jpg,png,jpeg,gif|max:2048'
-        ]);
-
-        // Xử lý avatar
-        if ($request->hasFile('avatar')) {
-            // Xóa avatar cũ nếu có
-            if ($user->avatar) {
-                Storage::disk('public')->delete($user->avatar);
-            }
-
-            // Lưu avatar mới
-            $avatarPath = $request->file('avatar')->store('avatars', 'public');
-            $dataValidate['avatar'] = $avatarPath;
+    // Xử lý avatar nếu có
+    if ($request->hasFile('avatar')) {
+        // Xóa avatar cũ nếu có
+        if ($user->avatar) {
+            Storage::disk('public')->delete($user->avatar);
         }
 
-        // Cập nhật thông tin người dùng
-        $user->update($dataValidate);
-
-        return redirect()->route('admin.users.index');
+        // Lưu avatar mới
+        $avatarPath = $request->file('avatar')->store('avatars', 'public');
+        $dataValidate['avatar'] = $avatarPath;
     }
+
+    // Cập nhật thông tin người dùng bao gồm trạng thái
+    $user->update([
+        'name' => $dataValidate['name'],
+        'email' => $dataValidate['email'],
+        'role' => $dataValidate['role'],
+        'status' => $dataValidate['status'],  // Đảm bảo trạng thái được cập nhật
+        'avatar' => $dataValidate['avatar'] ?? $user->avatar,  // Giữ lại avatar cũ nếu không có thay đổi
+    ]);
+
+    // Quay lại trang danh sách người dùng
+    return redirect()->route('admin.users.index')->with('success', 'Cập nhật người dùng thành công!');
+}
+
 
 
     public function destroy($id)

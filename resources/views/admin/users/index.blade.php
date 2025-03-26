@@ -74,10 +74,11 @@
         <thead class="thead-light">
             <tr>
                 <th scope="col">ID</th>
-                
                 <th scope="col">Avatar</th>
                 <th scope="col">Tên</th>
                 <th scope="col">Email</th>
+                <th scope="col">Vai trò</th> <!-- Thêm cột Vai trò -->
+                <th scope="col">Trạng thái </th>
                 <th scope="col">Ngày tạo</th>
                 <th scope="col">Ngày cập nhật</th>
                 <th scope="col">Thao tác</th>
@@ -89,11 +90,11 @@
                 <td>{{ $user->id }}</td>
                 <td>
                     <img src="{{ asset('storage/' . $user->avatar) }}" alt="Avatar" class="img-circle" width="50">
-
                 </td>
-                
                 <td>{{ $user->name }}</td>
                 <td>{{ $user->email }}</td>
+                <td>{{ $user->role}}</td> <!-- Hiển thị vai trò -->
+                <td>{{ $user->status }}</td>
                 <td>{{ $user->created_at }}</td>
                 <td>{{ $user->updated_at }}</td>
                 <td>
@@ -107,6 +108,7 @@
             </tr>
             @endforeach
         </tbody>
+        
     </table>
 
     <!-- Hiển thị phân tranga -->

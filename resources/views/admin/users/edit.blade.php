@@ -49,6 +49,32 @@
                         </div>
                     @endif
                 </div>
+                <div class="col-md-3">
+                    <label class="form-label">Vai trò</label>
+                    <select name="role" class="form-control">
+                        @foreach ($roles as $role)
+                            <option value="{{ $role }}" {{ $user->role == $role ? 'selected' : '' }}>
+                                {{ ucfirst($role) }} <!-- Hiển thị tên vai trò -->
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Trạng thái</label>
+                    <select name="status" class="form-control">
+                        <option value="active" {{ old('status', $user->status) == 'active' ? 'selected' : '' }}>Kích hoạt</option>
+                        <option value="inactive" {{ old('status', $user->status) == 'inactive' ? 'selected' : '' }}>Không kích hoạt</option>
+                    </select>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+
+                
 
                 <!-- Nút Lưu -->
                 <div class="col-12 text-end">
