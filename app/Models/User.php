@@ -25,6 +25,7 @@ class User extends Authenticatable
         'address',
         'role',
         'avatar',
+        'status'
     ];
 
     /**
@@ -35,6 +36,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    const STATUS_ACTIVE = 'active';
+    const STATUS_INACTIVE = 'inactive';
 
     /**
      * Get the attributes that should be cast.

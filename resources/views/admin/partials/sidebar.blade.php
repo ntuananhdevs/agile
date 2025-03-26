@@ -7,29 +7,26 @@
     </div>
     <nav>
         <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-            <i class="bi bi-bar-chart"></i> Dashboard
+            <ion-icon name="bar-chart-outline"></ion-icon> Dashboard
         </a>
         <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
-            <i class="bi bi-info-circle"></i> Quản lý người dùng
+            <ion-icon name="people-outline"></ion-icon> Quản lý người dùng
         </a>
-        <a href="{{ route('admin.categories.index') }}"
-            class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
-            <i class="bi bi-toggle-on"></i> Quản lý danh mục
+        <a href="{{ route('admin.categories.index') }}" class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
+            <ion-icon name="list-outline"></ion-icon> Quản lý danh mục
         </a>
-        <a href="{{ route('admin.products.index') }}"
-            class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
-            <i class="bi bi-card-text"></i> Quản lý sản phẩm
+        <a href="{{ route('admin.products.index') }}" class="{{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
+            <ion-icon name="pricetag-outline"></ion-icon> Quản lý sản phẩm
         </a>
-        <a href="{{ route('admin.orders.index') }}" 
-        class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
-            <i class="bi bi-table"></i> Quản lý đơn hàng
+        <a href="{{ route('admin.orders.index') }}" class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
+            <ion-icon name="cart-outline"></ion-icon> Quản lý đơn hàng
         </a>
-
-
-
-        <a href="" 
-        class="{{ request()->routeIs('admin.logout.*') ? 'active' : 'bs-tertiary-color-rgb' }}  ">
-                <ion-icon name="log-out-outline" size="large" color="#333"></ion-icon> Logout 
-        </a>
+        <form action="" method="POST" class="mt-3">
+            @csrf
+            <button type="submit" class="btn btn-danger w-100 d-flex align-items-center">
+                <ion-icon name="log-out-outline" class="me-2"></ion-icon> Đăng xuất
+            </button>
+        </form>
     </nav>
 </div>
+

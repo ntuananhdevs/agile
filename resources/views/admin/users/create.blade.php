@@ -19,7 +19,7 @@
                 <!-- Tên -->
                 <div class="col-md-6">
                     <label class="form-label">Tên</label>
-                    <input type="text" name="name" class="form-control  @error('name') is-invalid @enderror" 
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" 
                         placeholder="Nhập tên" value="{{ old('name') }}">
                     @error('name')
                         <p class="text-danger">{{ $message }}</p>
@@ -46,7 +46,7 @@
                     @enderror
                 </div>
 
-                <!-- Avatara -->
+                <!-- Avatar -->
                 <div class="col-md-6">
                     <label class="form-label">Avatar</label>
                     <input type="file" name="avatar" class="form-control @error('avatar') is-invalid @enderror" accept="image/*">
@@ -54,6 +54,31 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
+                   <!-- Vai trò -->
+                   <div class="col-md-6">
+                    <label class="form-label">Vai trò</label>
+                    <select name="role" class="form-control @error('role') is-invalid @enderror">
+                        <option value="">Chọn vai trò</option>
+                        @foreach ($roles as $role)
+                            <option value="{{ $role }}" {{ old('role') == $role ? 'selected' : '' }}>
+                                {{ ucfirst($role) }}
+                            </option>
+                        @endforeach
+                    </select>
+                    @error('role')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label">Trạng thái</label>
+                    <select name="status" class="form-control">
+                        <option value="active" {{ old('status', $user->status ?? '') == 'active' ? 'selected' : '' }}>Kích hoạt</option>
+                        <option value="inactive" {{ old('status', $user->status ?? '') == 'inactive' ? 'selected' : '' }}>Không kích hoạt</option>
+                    </select>
+                </div>
+                
+
 
                 <!-- Nút Lưu -->
                 <div class="col-12 text-end">
