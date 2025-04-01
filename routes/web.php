@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\OrderController;
-use App\Models\Order;
 
+
+// Route trang chủ
 Route::get('/', function () {
     return view('welcome');
 });
@@ -17,10 +17,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
         Route::get('/{id}/show', [ProductController::class, 'show'])->name('show');
-        Route::get('/{id}/productVariants', [ProductController::class, 'productVariants'])->name('productVariants');
         Route::get('/create', [ProductController::class, 'create'])->name('create');
-        Route::get('/{id}/create_variants', [ProductController::class, 'createVariants'])->name('create_variants');
-        Route::post('/{id}/store_variants', [ProductController::class, 'storeVariants'])->name('store_variants');
         Route::post('/store', [ProductController::class, 'store'])->name('store');
         Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('edit');
         Route::post('/{id}/update', [ProductController::class, 'update'])->name('update');
@@ -49,3 +46,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
     });
 });
+

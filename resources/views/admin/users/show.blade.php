@@ -41,10 +41,10 @@
                         <th>Mật khẩu</th>
                         <td>{{ Str::limit($user->password, 10, '...') }}</td>
                     </tr> --}}
-                    <tr>
+                    {{-- <tr>
                         <th>Remember Token</th>
                         <td>{{ $user->remember_token }}</td>
-                    </tr>
+                    </tr> --}}
                     <tr>
                         <th>Ngày tạo</th>
                         <td>{{ $user->created_at }}</td>
