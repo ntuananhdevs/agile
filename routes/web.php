@@ -20,7 +20,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ClientHomeController::class, 'index'])->name('home');
 
-   
+
 
 });
 
@@ -31,10 +31,17 @@ Route::prefix('admin')->middleware(['auth','admin'])->name('admin.')->group(func
         Route::get('/', [ProductController::class, 'index'])->name('index');
         Route::get('/{id}/show', [ProductController::class, 'show'])->name('show');
         Route::get('/create', [ProductController::class, 'create'])->name('create');
+        Route::get('/{id}/create_variants', [ProductController::class, 'createVariants'])->name('create_variants');
         Route::post('/store', [ProductController::class, 'store'])->name('store');
+        Route::post('/{id}/store_variants', [ProductController::class, 'storeVariants'])->name('store_variants');
         Route::get('/{id}/edit', [ProductController::class, 'edit'])->name('edit');
-        Route::post('/{id}/update', [ProductController::class, 'update'])->name('update');
+        Route::put('/{id}/update', [ProductController::class, 'update'])->name('update');
+        Route::delete('/{id}/delete', [ProductController::class, 'destroy'])->name('delete');
+        Route::delete('/{id}/delete_variant', [ProductController::class, 'destroyVariants'])->name('delete_variant');
+        Route::get('/{id}/edit_variant', [ProductController::class, 'editVariants'])->name('edit_variant');
+        Route::put('/{id}/update_variants', [ProductController::class, 'updateVariants'])->name('update_variants');
         Route::post('/{id}/delete', [ProductController::class, 'destroy'])->name('delete');
+
     });
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index');

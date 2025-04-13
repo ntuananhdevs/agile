@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <h2 class="mb-4">Biến thể của sản phẩm: {{ $product->name }}</h2>
-   <a href="{{ route('admin.products.create_variants', $product->id) }}" class="btn btn-primary">Thêm biến thể</a> 
+   <a href="{{ route('admin.products.create_variants', $product->id) }}" class="btn btn-primary">Thêm biến thể</a>
     <table class="table table-bordered">
         <thead>
             <tr>
@@ -36,16 +36,21 @@
                         @endif
                     </td>
                     <td>
-                         
+                        <a href="{{ route('admin.products.edit_variant', $variant->id) }}" class="btn btn-warning">Sửa</a>
+                        <form action="{{ route('admin.products.delete_variant', $variant->id) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Xóa</button>
+                        </form>
                     </td>
-                  
+
                 </tr>
             @endforeach
-           
+
         </tbody>
     </table>
     <a href="{{ route('admin.products.index') }}" class="btn btn-primary">Quay lại danh sách sản phẩm</a>
 
-  
+
 </div>
 @endsection

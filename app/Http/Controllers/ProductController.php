@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product_variants;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -28,11 +29,6 @@ class ProductController extends Controller
         return view('admin.products.index', compact('products', 'categories'));
     }
 
-    public function show($id)
-    {
-        $product = Product::with('category')->findOrFail($id);
-        return view('admin.products.show', compact('product'));
-    }
 
     public function create()
     {
@@ -80,14 +76,21 @@ class ProductController extends Controller
             [
                 'name' => 'required',
                 'description' => 'required',
-                'category_id' => 'required'
+                'category_id' => 'required',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ],
             [
                 'name.required' => 'Ten san pham khong duoc de trong',
                 'description.required' => 'Mota san pham khong duoc de trong',
-                'category_id.required' => 'Danh muc san pham khong duoc de trong'
+                'category_id.required' => 'Danh muc san pham khong duoc de trong',
+                'image.image' => 'Hinh anh khong hop le',
+
             ]
         );
+        if ($request->hasFile('image')) {
+            $img = $request->file('image')->store('images/products', 'public');
+            $dataNew['image'] = $img;
+        }
 
         Product::findOrFail($id)->update($dataNew);
         return redirect()->route('admin.products.index');
@@ -99,13 +102,13 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index');
     }
 
-    public function productVariants($id)
+    public function show($id)
     {
         $product = Product::findOrFail($id);
         $productVariants = $product->productVariants;
         return view('admin.products.product_variants', compact('product', 'productVariants'));
     }
-    public function createVariants($id)
+       public function createVariants($id)
     {
         $product = Product::findOrFail($id);
 
@@ -140,6 +143,48 @@ class ProductController extends Controller
         }
         $product = Product::findOrFail($id);
         $product->productVariants()->create($dataNew);
-        return redirect()->route('admin.products.productVariants', $product->id);
+        return redirect()->route('admin.products.show', $product->id);
+    }
+    public function destroyVariants($id)
+    {
+        $productVariant = Product_variants::findOrFail($id);
+        $productVariant->delete();
+        return redirect()->back();
+    }
+    public function editVariants($id)
+    {
+        $product = Product_variants::findOrFail($id);
+        return view('admin.products.edit_variants', compact('product'));
+    }
+    public function updateVariants(Request $request, $id)
+    {
+        $dataNew = $request->validate(
+            [
+                'variant_sku' => 'required',
+                'color' => 'required',
+                'ram' => 'required',
+                'storage' => 'required',
+                'price' => 'required',
+                'stock' => 'required',
+                'image' => 'nullable | mimes:jpeg,png,jpg,gif | max:2048'
+            ],
+            [
+                'variant_sku.required' => 'Ma san pham khong duoc de trong',
+                'color.required' => 'Mau sac khong duoc de trong',
+                'ram.required' => 'Ram khong duoc de trong',
+                'storage.required' => 'Bo nho khong duoc de trong',
+                'price.required' => 'Gia khong duoc de trong',
+                'stock.required' => 'So luong khong duoc de trong',
+
+            ]
+        );
+
+        if ($request->hasFile('image')) {
+            $img = $request->file('image')->store('images/products', 'public');
+            $dataNew['image'] = $img;
+        }
+        $productVariant = Product_variants::findOrFail($id);
+        $productVariant->update($dataNew);
+        return redirect()->route('admin.products.show', $productVariant->product_id);
     }
 }
