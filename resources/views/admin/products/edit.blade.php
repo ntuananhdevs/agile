@@ -4,7 +4,7 @@
 @section('content')
 
     <form action="{{ route('admin.products.update', $product->id) }}" method="POST"
-        class="container mt-4 p-4 border rounded shadow-sm bg-light">
+        class="container mt-4 p-4 border rounded shadow-sm bg-light" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -49,9 +49,25 @@
             @enderror
         </div>
 
+        <div class="mb-3">
+            <label for="image" class="form-label fw-bold">Ảnh sản phẩm:</label>
+            <input type="file" id="image" name="image" class="form-control @error('image') is-invalid @enderror"
+                accept="image/*">
+            @error('image')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
+            @if ($product->image)
+                <div class="mt-2">
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="Ảnh sản phẩm" class="rounded"
+                        width="80" height="80">
+                </div>
+            @endif
+        </div>
+
 
         <button type="submit" class="btn btn-success w-100">Cập nhật sản phẩm</button>
     </form>
 
 
 @endsection
+
