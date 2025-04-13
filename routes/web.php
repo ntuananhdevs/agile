@@ -1,18 +1,31 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Client\ClientHomeController;
+
+Route::get('/form-login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login-post');
+Route::get('/form-register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register'])->name('register-post');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 
-// Route trang chủ
-Route::get('/', function () {
-    return view('welcome');
+Route::prefix('/')->name('client.')->group(function () {
+    Route::get('/', [ClientHomeController::class, 'index'])->name('home');
+
+   
+
 });
-Route::prefix('admin')->name('admin.')->group(function () {
+
+
+Route::prefix('admin')->middleware(['auth','admin'])->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');

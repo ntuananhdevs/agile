@@ -21,7 +21,7 @@
         <a href="{{ route('admin.orders.index') }}" class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
             <ion-icon name="cart-outline"></ion-icon> Quản lý đơn hàng
         </a>
-        <form action="" method="POST" class="mt-3">
+        <form action="{{ route('logout') }}" method="POST" class="mt-3">
             @csrf
             <button type="submit" class="btn btn-danger w-100 d-flex align-items-center">
                 <ion-icon name="log-out-outline" class="me-2"></ion-icon> Đăng xuất
