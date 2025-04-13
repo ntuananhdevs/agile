@@ -51,4 +51,20 @@ class User extends Authenticatable
            
         ];
     }
+
+
+    const ROLE_ADMIN='admin';
+    const ROLE_USER='customer';
+    protected $attributes=[
+        'role'=>self::ROLE_USER,
+    ];
+
+    public function isRoleAdmin()
+    {
+        return $this->role===self::ROLE_ADMIN;
+    }
+    public function isUser()
+    {
+        return $this->role ===self::ROLE_USER;
+    }
 }
