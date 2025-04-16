@@ -22,6 +22,7 @@ class ProductFactory extends Factory
             'name' => $this->faker->name(),
             'description' => $this->faker->sentence(),
             'category_id' => null,
+            'sku' => strtoupper($this->faker->unique()->bothify('SP-###??')), // VD: PROD-123AB
         ];
     }
 }

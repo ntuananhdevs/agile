@@ -19,13 +19,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ClientHomeController::class, 'index'])->name('home');
-
-
-
 });
 
 
-Route::prefix('admin')->middleware(['auth','admin'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
@@ -41,7 +38,6 @@ Route::prefix('admin')->middleware(['auth','admin'])->name('admin.')->group(func
         Route::get('/{id}/edit_variant', [ProductController::class, 'editVariants'])->name('edit_variant');
         Route::put('/{id}/update_variants', [ProductController::class, 'updateVariants'])->name('update_variants');
         Route::post('/{id}/delete', [ProductController::class, 'destroy'])->name('delete');
-
     });
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
@@ -66,4 +62,3 @@ Route::prefix('admin')->middleware(['auth','admin'])->name('admin.')->group(func
         Route::get('/', [OrderController::class, 'index'])->name('index');
     });
 });
-

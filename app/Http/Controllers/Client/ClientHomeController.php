@@ -9,7 +9,6 @@ class ClientHomeController extends Controller
 {
     public function index()
     {
-        
 
         return view('clients.home');
     }
