@@ -6,28 +6,32 @@
                         <div class="ft-inner flex-wrap flex-xl-nowrap">
                             <div class="ft-logo">
                                 <a href="index-2.html" class="logo-site">
-                                    <img src="{{ asset('clients/images/logo/logo.svg') }}" alt="Logo">
-                                </a>
-                                <div class="method-payment">
-                                    <p>
-                                        We accept:
-                                    </p>
-                                    <ul class="method-list">
-                                        <li>
-                                            <img src="{{ asset('clients/images/payment/visa.svg') }}" alt="Payment">
-                                        </li>
-                                        <li>
-                                            <img src="{{ asset('clients/images/payment/paypal.svg') }}" alt="Payment">
-                                        </li>
-                                        <li>
-                                            <img src="{{ asset('clients/images/payment/discover.svg') }}"
-                                                alt="Payment">
-                                        </li>
-                                        <li>
-                                            <img src="{{ asset('clients/images/payment/master.svg') }}" alt="Payment">
-                                        </li>
-                                    </ul>
-                                </div>
+                                    <a href="{{ route('client.home') }}" class="logo-site">
+                                        <img src="{{ asset('clients/images/logo/logo.svg') }}" alt="Logo">
+                                    </a>
+                                    <div class="method-payment">
+                                        <p>
+                                            We accept:
+                                        </p>
+                                        <ul class="method-list">
+                                            <li>
+                                                <img src="{{ asset('clients/images/payment/visa.svg') }}"
+                                                    alt="Payment">
+                                            </li>
+                                            <li>
+                                                <img src="{{ asset('clients/images/payment/paypal.svg') }}"
+                                                    alt="Payment">
+                                            </li>
+                                            <li>
+                                                <img src="{{ asset('clients/images/payment/discover.svg') }}"
+                                                    alt="Payment">
+                                            </li>
+                                            <li>
+                                                <img src="{{ asset('clients/images/payment/master.svg') }}"
+                                                    alt="Payment">
+                                            </li>
+                                        </ul>
+                                    </div>
                             </div>
                             <ul class="ft-link-wrap w-100 tf-grid-layout md-col-2 lg-col-4">
                                 <li class="footer-col-block">

@@ -143,16 +143,19 @@
                 <li class="file-delete">
                     <div class="card-product style-row row-small-2 align-items-center">
                         <div class="card-product-wrapper">
-                            <a href="product-detail.html" class="product-img">
-                                <img class="img-product lazyload" src="images/product/product-75.jpg"
-                                    data-src="images/product/product-75.jpg" alt="image-product">
-                                <img class="img-hover lazyload" src="images/product/product-65.jpg"
-                                    data-src="images/product/product-65.jpg" alt="image-product">
+                            <a href="{{ route('client.detail') }}" class="product-img">
+                                <img class="img-product lazyload"
+                                    src="{{ asset('clients/images/product/product-75.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-75.jpg') }}" alt="image-product">
+                                <img class="img-hover lazyload"
+                                    src="{{ asset('clients/images/product/product-65.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-65.jpg') }}"
+                                    alt="image-product">
                             </a>
                         </div>
                         <div class="card-product-info">
                             <div class="box-title">
-                                <a href="product-detail.html"
+                                <a href="{{ route('client.detail') }}"
                                     class="name-product body-md-2 fw-semibold text-secondary link">
                                     Beats Studio3 Wireless Noise Cancelling Over-Ear Headphones
                                 </a>
@@ -168,11 +171,15 @@
                 <li class="file-delete">
                     <div class="card-product style-row row-small-2 align-items-center">
                         <div class="card-product-wrapper">
-                            <a href="product-detail.html" class="product-img">
-                                <img class="img-product lazyload" src="images/product/product-3.jpg"
-                                    data-src="images/product/product-3.jpg" alt="image-product">
-                                <img class="img-hover lazyload" src="images/product/product-59.jpg"
-                                    data-src="images/product/product-59.jpg" alt="image-product">
+                            <a href="{{ route('client.detail') }}" class="product-img">
+                                <img class="img-product lazyload"
+                                    src="{{ asset('clients/images/product/product-3.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-3.jpg') }}"
+                                    alt="image-product">
+                                <img class="img-hover lazyload"
+                                    src="{{ asset('clients/images/product/product-59.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-59.jpg') }}"
+                                    alt="image-product">
                             </a>
                         </div>
                         <div class="card-product-info">
@@ -193,16 +200,20 @@
                 <li class="file-delete">
                     <div class="card-product style-row row-small-2 align-items-center">
                         <div class="card-product-wrapper">
-                            <a href="product-detail.html" class="product-img">
-                                <img class="img-product lazyload" src="images/product/product-169.jpg"
-                                    data-src="images/product/product-169.jpg" alt="image-product">
-                                <img class="img-hover lazyload" src="images/product/product-67.jpg"
-                                    data-src="images/product/product-67.jpg" alt="image-product">
+                            <a href="{{ route('client.detail') }}" class="product-img">
+                                <img class="img-product lazyload"
+                                    src="{{ asset('clients/images/product/product-169.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-169.jpg') }}"
+                                    alt="image-product">
+                                <img class="img-hover lazyload"
+                                    src="{{ asset('clients/images/product/product-67.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-67.jpg') }}"
+                                    alt="image-product">
                             </a>
                         </div>
                         <div class="card-product-info">
                             <div class="box-title">
-                                <a href="product-detail.html"
+                                <a href="{{ route('client.detail') }}"
                                     class="name-product body-md-2 fw-semibold text-secondary link">
                                     Apple iPhone 11 Pro Max, 256GB, Space Gray
                                 </a>
@@ -218,16 +229,20 @@
                 <li class="file-delete">
                     <div class="card-product style-row row-small-2 align-items-center">
                         <div class="card-product-wrapper">
-                            <a href="product-detail.html" class="product-img">
-                                <img class="img-product lazyload" src="images/product/product-92.jpg"
-                                    data-src="images/product/product-92.jpg" alt="image-product">
-                                <img class="img-hover lazyload" src="images/product/product-100.jpg"
-                                    data-src="images/product/product-100.jpg" alt="image-product">
+                            <a href="{{ route('client.detail') }}" class="product-img">
+                                <img class="img-product lazyload"
+                                    src="{{ asset('clients/images/product/product-92.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-92.jpg') }}"
+                                    alt="image-product">
+                                <img class="img-hover lazyload"
+                                    src="{{ asset('clients/images/product/product-100.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-100.jpg') }}"
+                                    alt="image-product">
                             </a>
                         </div>
                         <div class="card-product-info">
                             <div class="box-title">
-                                <a href="product-detail.html"
+                                <a href="{{ route('client.detail') }}"
                                     class="name-product body-md-2 fw-semibold text-secondary link">
                                     MSI Katana GF66 11UC-068SG Gaming Laptop i7-11800H/...
                                 </a>
@@ -244,10 +259,14 @@
                     <div class="card-product style-row row-small-2 align-items-center">
                         <div class="card-product-wrapper">
                             <a href="product-detail.html" class="product-img">
-                                <img class="img-product lazyload" src="images/product/product-46.jpg"
-                                    data-src="images/product/product-46.jpg" alt="image-product">
-                                <img class="img-hover lazyload" src="images/product/product-45.jpg"
-                                    data-src="images/product/product-45.jpg" alt="image-product">
+                                <img class="img-product lazyload"
+                                    src="{{ asset('clients/images/product/product-46.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-46.jpg') }}"
+                                    alt="image-product">
+                                <img class="img-hover lazyload"
+                                    src="{{ asset('clients/images/product/product-45.jpg') }}"
+                                    data-src="{{ asset('clients/images/product/product-45.jpg') }}"
+                                    alt="image-product">
                             </a>
                         </div>
                         <div class="card-product-info">
@@ -272,10 +291,11 @@
                     <span class="price-amount product-title text-primary">$1637</span>
                 </p>
                 <div class="box-btn">
-                    <a href="shop-cart.html" class="tf-btn btn-gray">
+                    <a href="{{ route('client.shopcard') }}" class="tf-btn btn-gray">
                         <span class="text-white">View Cart</span>
                     </a>
-                    <a href="checkout.html" class="tf-btn"><span class="text-white">Check Out</span></a>
+                    <a href="{{ route('client.checkout') }}" class="tf-btn"><span class="text-white">Check
+                            Out</span></a>
                 </div>
                 <div class="delivery-progress">
                     <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0"
@@ -307,6 +327,9 @@
                                         <img src="images/product/product-thumb/quickview-1.jpg"
                                             data-src="images/product/product-thumb/quickview-1.jpg" alt=""
                                             class="lazyload">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-1.jpg') }}"
+                                            data-src="{{ asset('clients/images/product/product-thumb/quickview-1.jpg') }}"
+                                            alt="" class="lazyload">
                                     </a>
                                 </div>
                                 <!-- item 2 -->
@@ -315,6 +338,9 @@
                                         <img src="images/product/product-thumb/quickview-2.jpg"
                                             data-src="images/product/product-thumb/quickview-2.jpg" alt=""
                                             class="lazyload">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-2.jpg') }}"
+                                            data-src="{{ asset('clients/images/product/product-thumb/quickview-2.jpg') }}"
+                                            alt="" class="lazyload">
                                     </a>
                                 </div>
                                 <!-- item 3 -->
@@ -323,6 +349,9 @@
                                         <img src="images/product/product-thumb/quickview-3.jpg"
                                             data-src="images/product/product-thumb/quickview-3.jpg" alt=""
                                             class="lazyload">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-3.jpg') }}"
+                                            data-src="{{ asset('clients/images/product/product-thumb/quickview-3.jpg') }}"
+                                            alt="" class="lazyload">
                                     </a>
                                 </div>
                                 <!-- item 4 -->
@@ -331,6 +360,9 @@
                                         <img src="images/product/product-thumb/quickview-4.jpg"
                                             data-src="images/product/product-thumb/quickview-4.jpg" alt=""
                                             class="lazyload">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-4.jpg') }}"
+                                            data-src="{{ asset('clients/images/product/product-thumb/quickview-4.jpg') }}"
+                                            alt="" class="lazyload">
                                     </a>
                                 </div>
                                 <!-- item 5 -->
@@ -339,6 +371,9 @@
                                         <img src="images/product/product-thumb/quickview-5.jpg"
                                             data-src="images/product/product-thumb/quickview-5.jpg" alt=""
                                             class="lazyload">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-5.jpg') }}"
+                                            data-src="{{ asset('clients/images/product/product-thumb/quickview-5.jpg') }}"
+                                            alt="" class="lazyload">
                                     </a>
                                 </div>
                             </div>
@@ -351,12 +386,16 @@
                                 <div class="swiper-slide">
                                     <div class="item">
                                         <img src="images/product/product-thumb/quickview-1.jpg" alt="">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-1.jpg') }}"
+                                            alt="">
                                     </div>
                                 </div>
                                 <!-- item 2 -->
                                 <div class="swiper-slide">
                                     <div class="item">
                                         <img src="images/product/product-thumb/quickview-2.jpg" alt="">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-2.jpg') }}"
+                                            alt="">
                                     </div>
                                 </div>
                                 <!-- item 3 -->
@@ -365,16 +404,19 @@
                                         <img src="images/product/product-thumb/quickview-3.jpg" alt="">
                                     </div>
                                 </div>
-                                <!-- item 4 -->
                                 <div class="swiper-slide">
                                     <div class="item">
                                         <img src="images/product/product-thumb/quickview-4.jpg" alt="">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-4.jpg') }}"
+                                            alt="">
                                     </div>
                                 </div>
                                 <!-- item 5 -->
                                 <div class="swiper-slide">
                                     <div class="item">
                                         <img src="images/product/product-thumb/quickview-5.jpg" alt="">
+                                        <img src="{{ asset('clients/images/product/product-thumb/quickview-5.jpg') }}"
+                                            alt="">
                                     </div>
                                 </div>
                             </div>
@@ -457,6 +499,7 @@
                                     <li>
                                         <p class="body-text-3">
                                             Here’s the quickest way to enjoy your delicious hot tea
+                                            Here's the quickest way to enjoy your delicious hot tea
                                             every
                                             single day.
                                         </p>
@@ -488,6 +531,8 @@
                                         <p class="body-text-3">
                                             It’s very thin—7.45mm / 0.29″—and starts at just 465g / 1.03lbs, thanks to
                                             an aluminum chassis that’s both lightweight and durable.
+                                            It's very thin—7.45mm / 0.29″—and starts at just 465g / 1.03lbs, thanks to
+                                            an aluminum chassis that's both lightweight and durable.
                                         </p>
                                     </li>
                                 </ul>
@@ -523,6 +568,7 @@
                     <h5 class="fw-semibold">Join our newsletter for $10 offs</h5>
                     <p class="body-md-2">Register now to get latest updates on promotions & coupons. <br>
                         Don’t worry, we not spam!</p>
+                    Don't worry, we not spam!</p>
                 </div>
                 <form action="#" class="form-sub">
                     <div class="form-content">
@@ -593,6 +639,10 @@
                                 <a href="product-detail.html" class="image">
                                     <img class=" lazyload" src="images/product/product-165.jpg"
                                         data-src="images/product/product-165.jpg" alt="">
+                                    <img class=" lazyload"
+                                        src="{{ asset('clients/images/product/product-165.jpg') }}"
+                                        data-src="{{ asset('clients/images/product/product-165.jpg') }}"
+                                        alt="">
                                 </a>
                                 <div class="content">
                                     <a class="text-line-clamp-2 body-md-2 fw-semibold text-secondary link"
@@ -636,6 +686,9 @@
                                 <a href="product-detail.html" class="image">
                                     <img class=" lazyload" src="images/product/product-43.jpg"
                                         data-src="images/product/product-43.jpg" alt="">
+                                    <img class=" lazyload" src="{{ asset('clients/images/product/product-43.jpg') }}"
+                                        data-src="{{ asset('clients/images/product/product-43.jpg') }}"
+                                        alt="">
                                 </a>
                                 <div class="content">
                                     <a class="text-line-clamp-2 body-md-2 fw-semibold text-secondary link"
@@ -679,6 +732,10 @@
                                 <a href="product-detail.html" class="image">
                                     <img class=" lazyload" src="images/product/product-137.jpg"
                                         data-src="images/product/product-137.jpg" alt="">
+                                    <img class=" lazyload"
+                                        src="{{ asset('clients/images/product/product-137.jpg') }}"
+                                        data-src="{{ asset('clients/images/product/product-137.jpg') }}"
+                                        alt="">
                                 </a>
                                 <div class="content">
                                     <a class="text-line-clamp-2 body-md-2 fw-semibold text-secondary link"
@@ -722,6 +779,9 @@
                                 <a href="product-detail.html" class="image">
                                     <img class=" lazyload" src="images/product/product-86.jpg"
                                         data-src="images/product/product-86.jpg" alt="">
+                                    <img class=" lazyload" src="{{ asset('clients/images/product/product-86.jpg') }}"
+                                        data-src="{{ asset('clients/images/product/product-86.jpg') }}"
+                                        alt="">
                                 </a>
                                 <div class="content">
                                     <a class="text-line-clamp-2 body-md-2 fw-semibold text-secondary link"
@@ -899,6 +959,12 @@
                                                         <img class="img-hover lazyload"
                                                             src="images/product/product-21.jpg"
                                                             data-src="images/product/product-21.jpg"
+                                                            src="{{ asset('clients/images/product/product-81.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-81.jpg') }}"
+                                                            alt="image-product">
+                                                        <img class="img-hover lazyload"
+                                                            src="{{ asset('clients/images/product/product-21.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-21.jpg') }}"
                                                             alt="image-product">
                                                     </a>
                                                     <div class="box-sale-wrap pst-default z-5">
@@ -988,6 +1054,12 @@
                                                         <img class="img-hover lazyload"
                                                             src="images/product/product-detail-16.jpg"
                                                             data-src="images/product/product-detail-16.jpg"
+                                                            src="{{ asset('clients/images/product/product-detail-14.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-detail-14.jpg') }}"
+                                                            alt="image-product">
+                                                        <img class="img-hover lazyload"
+                                                            src="{{ asset('clients/images/product/product-detail-16.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-detail-16.jpg') }}"
                                                             alt="image-product">
                                                     </a>
                                                     <div class="box-sale-wrap pst-default z-5">
@@ -1078,6 +1150,12 @@
                                                         <img class="img-hover lazyload"
                                                             src="images/product/product-11.jpg"
                                                             data-src="images/product/product-11.jpg"
+                                                            src="{{ asset('clients/images/product/product-81.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-38.jpg') }}"
+                                                            alt="image-product">
+                                                        <img class="img-hover lazyload"
+                                                            src="{{ asset('clients/images/product/product-11.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-11.jpg') }}"
                                                             alt="image-product">
                                                     </a>
                                                     <div class="box-sale-wrap pst-default z-5">
@@ -1168,6 +1246,12 @@
                                                         <img class="img-hover lazyload"
                                                             src="images/product/product-56.jpg"
                                                             data-src="images/product/product-56.jpg"
+                                                            src="{{ asset('clients/images/product/product-39.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-39.jpg') }}"
+                                                            alt="image-product">
+                                                        <img class="img-hover lazyload"
+                                                            src="{{ asset('clients/images/product/product-56.jpg') }}"
+                                                            data-src="{{ asset('clients/images/product/product-56.jpg') }}"
                                                             alt="image-product">
                                                     </a>
                                                     <div class="box-sale-wrap pst-default z-5">

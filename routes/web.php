@@ -19,6 +19,10 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 
 Route::prefix('/')->name('client.')->group(function () {
     Route::get('/', [ClientHomeController::class, 'index'])->name('home');
+    Route::get('/shop', [ClientHomeController::class, 'shop'])->name('shop');
+    Route::get('/detail', [ClientHomeController::class, 'detail'])->name('detail');
+    Route::get('/shopcard', [ClientHomeController::class, 'shopcard'])->name('shopcard');
+    Route::get('/checkout', [ClientHomeController::class, 'checkout'])->name('checkout');
 });
 
 
