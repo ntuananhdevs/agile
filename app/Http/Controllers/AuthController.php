@@ -11,15 +11,18 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    public function showLoginForm() {
-        return view('auth.login');
+    public function showLoginForm()
+    {
+        return view("auth.login");
     }
 
-    public function showRegisterForm() {
+    public function showRegisterForm()
+    {
         return view('auth.register');
     }
 
-    public function register(Request $request) {
+    public function register(Request $request)
+    {
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
@@ -30,15 +33,16 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            
+
         ]);
 
         return redirect()->route('login')->with('success', 'Đăng ký thành công');
     }
 
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $credentials = $request->only('email', 'password');
-    
+
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
             if ($user->role === 'admin') {
@@ -47,10 +51,10 @@ class AuthController extends Controller
                 return redirect()->route('client.home');
             }
         }
-    
+
         return back()->withErrors(['email' => 'Email hoặc mật khẩu không đúng']);
     }
-    
+
 
     public function logout(Request $request)
     {
@@ -67,4 +71,3 @@ class AuthController extends Controller
         return redirect()->route('client.home')->with('success', 'Đăng xuất thành công.');
     }
 }
-
