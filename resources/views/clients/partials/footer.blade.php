@@ -106,7 +106,7 @@
                                                 </span>
                                                 <a href="#" class="">
                                                     <span class="text-primary">
-                                                        onsus@support.com
+                                                        PhoneStore@support.com
                                                     </span>
                                                 </a>
                                             </li>
@@ -172,7 +172,7 @@
                                 </li>
                             </ul>
                             <p class="nocopy caption text-center">
-                                <span class="fw-medium">Onsus.</span>© 2025. All right reserved - Designed by
+                                <span class="fw-medium">PhoneStore.</span>© 2025. All right reserved - Designed by
                                 ThemesFlat
                             </p>
                         </div>

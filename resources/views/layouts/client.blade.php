@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Onsus - Multipurpose eCommerce</title>
+    <title>PhoneStore - Multipurpose eCommerce</title>
     <meta name="author" content="themesflat.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Themesflat Onsus, Multipurpose eCommerce Template">
+    <meta name="description" content="Themesflat PhoneStore, Multipurpose eCommerce Template">
 
     <!-- font -->
     <link rel="stylesheet" href="{{ asset('clients/fonts/font.css') }}">

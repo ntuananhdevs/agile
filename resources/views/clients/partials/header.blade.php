@@ -136,8 +136,8 @@
                                  </p>
                                  <p class="mail-us body-text-3">
                                      Email:
-                                     <a href="mailto:Onsus@support.com"
-                                         class="text-secondary link-main ">Onsus@support.com</a>
+                                     <a href="mailto:PhoneStore@support.com"
+                                         class="text-secondary link-main ">PhoneStore@support.com</a>
                                  </p>
                              </div>
                          </div>
