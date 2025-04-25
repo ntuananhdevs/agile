@@ -26,7 +26,8 @@ Route::prefix('/')->name('client.')->group(function () {
 });
 
 
-Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(function () {
+// Admin Order Routes
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('products')->name('products.')->group(function () {
         Route::get('/', [ProductController::class, 'index'])->name('index');
@@ -65,4 +66,10 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->name('admin.')->group(fun
     Route::prefix('orders')->name('orders.')->group(function () {
         Route::get('/', [OrderController::class, 'index'])->name('index');
     });
+    // Order routes
+    Route::get('/orders', [App\Http\Controllers\Admin\OrderController::class, 'index'])->name('orders.index');
+    Route::get('/orders/{id}', [App\Http\Controllers\Admin\OrderController::class, 'show'])->name('orders.show');
+    Route::post('/orders/{id}/update-status', [App\Http\Controllers\Admin\OrderController::class, 'updateStatus'])->name('orders.update_status');
+    Route::post('/orders/{id}/handle-return', [App\Http\Controllers\Admin\OrderController::class, 'handleReturn'])->name('orders.handle_return');
+    Route::get('/orders/{id}/print', [App\Http\Controllers\Admin\OrderController::class, 'printBill'])->name('orders.print');
 });

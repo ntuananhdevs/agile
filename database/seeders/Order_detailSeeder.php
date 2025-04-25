@@ -5,23 +5,26 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Order;
 use App\Models\Order_details;
-use App\Models\OrderDetail;
 use App\Models\Product_variants;
-use App\Models\ProductVariant;
+use Faker\Factory as Faker;
 
-class OrderDetailsSeeder extends Seeder
+class Order_detailSeeder extends Seeder
 {
     public function run()
     {
-        Order::factory()->count(5)->create()->each(function ($order) {
-            Order_details::factory()->count(5)->create([
-                'order_id' => $order->id,
+        $faker = Faker::create();
+        
+        Order::all()->each(function ($order) use ($faker) {
+            $product_variants = Product_variants::inRandomOrder()->limit(3)->get();
             
-            ])->each(function ($order_details) {
-                Product_variants::factory()->count(5)->create([
-                    'product_variants' => $order_details->id,
+            foreach ($product_variants as $variant) {
+                Order_details::factory()->create([
+                    'order_id' => $order->id,
+                    'product_variant_id' => $variant->id,
+                    'quantity' => $faker->numberBetween(1, 5),
+                    'price' => $variant->price,
                 ]);
-            });
+            }
         });
     }
 }

@@ -1,9 +1,9 @@
 <div class="sidebar p-3">
     <div class="d-flex align-items-center mb-4">
-        <div class="bg-success p-2 rounded-circle text-white">
-            🤡
+        <div class="bg-success p-2 rounded-circle text-white d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+            <ion-icon name="storefront-outline" style="font-size: 1.5rem;"></ion-icon>
         </div>
-        <span class="ms-2 fw-bold fs-5">Spike Admin</span>
+        <span class="ms-2 fw-bold fs-5"> Admin</span>
     </div>
     <nav>
         <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
@@ -21,12 +21,15 @@
         <a href="{{ route('admin.orders.index') }}" class="{{ request()->routeIs('admin.orders.*') ? 'active' : '' }}">
             <ion-icon name="cart-outline"></ion-icon> Quản lý đơn hàng
         </a>
-        <form action="{{ route('logout') }}" method="POST" class="mt-3">
+    </nav>
+    
+    <div class="mt-auto" style="position: absolute; bottom: 50px; width: calc(100% - 2rem);">
+        <form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="btn btn-danger w-100 d-flex align-items-center">
                 <ion-icon name="log-out-outline" class="me-2"></ion-icon> Đăng xuất
             </button>
         </form>
-    </nav>
+    </div>
 </div>
 

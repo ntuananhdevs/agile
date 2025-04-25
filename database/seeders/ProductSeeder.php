@@ -4,8 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Product;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class ProductSeeder extends Seeder
 {
@@ -14,6 +12,14 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::factory()->count(5)->create();
+        // Tạo 5 sản phẩm cho mỗi danh mục
+        foreach ([11, 12, 13, 14, 15] as $categoryId) {
+            Product::factory()
+                ->count(5)
+                ->state(['category_id' => $categoryId])
+                ->create();
+        }
     }
 }
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;

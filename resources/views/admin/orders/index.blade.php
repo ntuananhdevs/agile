@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Danh sách danh mục')
+@section('title', 'Danh sách đơn hàng')
 
 @section('content')
    
@@ -12,7 +12,7 @@
         <h5 class="mb-0"><i class="fas fa-search"></i> Tìm kiếm đơn hàng</h5>
     </div>
     <div class="card-body">
-        <form method="GET" action="{{ route('admin.users.index') }}">
+        <form method="GET" action="{{ route('admin.orders.index') }}">
             <div class="row g-3">
                 <!-- ID -->
                 <div class="col-md-3">
@@ -22,14 +22,21 @@
 
                 <!-- Tên -->
                 <div class="col-md-3">
-                    <label class="form-label">Tên</label>
+                    <label class="form-label">Tên khách hàng</label>
                     <input type="text" name="name" class="form-control" placeholder="Nhập tên" value="{{ request('name') }}">
                 </div>
 
-                <!-- Email -->
+                <!-- Trạng thái đơn hàng -->
                 <div class="col-md-3">
-                    <label class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" placeholder="Nhập email" value="{{ request('email') }}">
+                    <label class="form-label">Trạng thái đơn hàng</label>
+                    <select name="shipping_status" class="form-select">
+                        <option value="">Tất cả</option>
+                        <option value="pending" {{ request('shipping_status') == 'pending' ? 'selected' : '' }}>Chờ xử lý</option>
+                        <option value="in_transit" {{ request('shipping_status') == 'in_transit' ? 'selected' : '' }}>Đang giao hàng</option>
+                        <option value="delivered" {{ request('shipping_status') == 'delivered' ? 'selected' : '' }}>Đã giao hàng</option>
+                        <option value="cancelled" {{ request('shipping_status') == 'cancelled' ? 'selected' : '' }}>Đã hủy</option>
+                        <option value="return_requested" {{ request('shipping_status') == 'return_requested' ? 'selected' : '' }}>Yêu cầu trả hàng</option>
+                    </select>
                 </div>
 
                 <!-- Nút tìm kiếm & Làm mới -->
@@ -37,7 +44,7 @@
                     <button type="submit" class="btn btn-primary me-2">
                         <i class="fas fa-search"></i> Tìm kiếm
                     </button>
-                    <a href="{{ route('admin.users.index') }}" class="btn btn-secondary">
+                    <a href="{{ route('admin.orders.index') }}" class="btn btn-secondary">
                         <i class="fas fa-sync"></i> Làm mới
                     </a>
                 </div>
@@ -74,6 +81,18 @@
                                 @break
                             @case('MOMO')
                                 <span class="badge bg-danger">Thanh toán MoMo</span>
+                                @break
+                            @case('Momo')
+                                <span class="badge bg-danger">Thanh toán MoMo</span>
+                                @break
+                            @case('Banking')
+                                <span class="badge bg-info">Chuyển khoản ngân hàng</span>
+                                @break
+                            @case('ZaloPay')
+                                <span class="badge bg-success">Thanh toán ZaloPay</span>
+                                @break
+                            @case('VNPay')
+                                <span class="badge bg-warning">Thanh toán VNPay</span>
                                 @break
                             @case('bank_transfer')
                                 <span class="badge bg-info">Chuyển khoản ngân hàng</span>
@@ -127,7 +146,7 @@
                                 <span class="badge bg-secondary">Đã hoàn hàng</span>
                                 @break
                             @case('return_failed')
-                                <span class="badge bg-danger">Hoa don that bai</span>
+                                <span class="badge bg-danger">Hoàn đơn thất bại</span>
                                 @break
                             @default
                                 <span class="badge bg-secondary">Không xác định</span>
@@ -135,9 +154,9 @@
                     </td>
                     <td>
                         @if($order->payment_status == 'paid' && $order->shipping_status == 'delivered')
-                            <a href="?act=print_bill&id={{ $order->id }}" class="btn btn-success">In</a>
+                            <a href="{{ route('admin.orders.print', $order->id) }}" class="btn btn-success btn-sm">In</a>
                         @endif
-                        <a href="?act=view_details&id={{ $order->id }}" class="btn btn-primary">Details</a>
+                        <a href="{{ route('admin.orders.show', $order->id) }}" class="btn btn-primary btn-sm">Chi tiết</a>
                     </td>
                 </tr>
             @endforeach
@@ -145,4 +164,7 @@
     </table>
 </div>
 
+<div class="d-flex justify-content-center mt-3">
+            {{ $orders->links('pagination::bootstrap-4') }}
+        </div>
 @endsection

@@ -4,9 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Order;
 use App\Models\Payments;
-use App\Models\User;
-use Faker\Provider\ar_EG\Payment;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PaymentsSeeder extends Seeder
@@ -16,14 +13,10 @@ class PaymentsSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->count(5)->create()->each(function ($user) {
-            Order::factory()->count(5)->create([
-                'user_id' => $user->id,
-            ])->each(function ($order) {
-                Payments::factory()->count(5)->create([
-                    'order_id' => $order->id,
-                ]);
-            });
+        Order::all()->each(function ($order) {
+            Payments::factory()->create([
+                'order_id' => $order->id,
+            ]);
         });
-}
+    }
 }
